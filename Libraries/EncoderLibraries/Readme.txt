@@ -1,1 +1,0 @@
-This Folder includes Encoder Library
