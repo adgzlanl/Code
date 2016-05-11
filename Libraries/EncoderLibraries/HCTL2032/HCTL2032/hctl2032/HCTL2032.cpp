@@ -17,21 +17,23 @@ void HCTL2032::EncoderQuadrature(QuadrateX QuadX) const
 	case 1
 	
 		digitalWrite(encoderPinEn1, HIGH);
-		digitalWrite(encoderPinEn2, LOW);
+		digitalWrite(encoderPinEn2, HIGH);
 		
 		break:
 		
 		case 2
 		
+		digitalWrite(encoderPinEn1, LOW);
+		digitalWrite(encoderPinEn2, HIGH);
+		
+		break:
+		
+		case 3:
+				
 		digitalWrite(encoderPinEn1, HIGH);
 		digitalWrite(encoderPinEn2, LOW);
-		
-		break:
-		case 3:
+				
 		break
-		case 4:
-		
-		break:
 }
 
 void HCTL2032::EncoderInit() const
