@@ -1,0 +1,1 @@
+HCTL2032 library is compatible for arduino atmega2560
