@@ -15,10 +15,19 @@ class HCTL2032
 		ChannelX,
 		ChannelY
 	};
+	
+	enum QuadrateX
+	{
+		x1,
+		x2,
+		x3,
+		x4
+	};
+
 
 	void EncoderInit() const;
 	void EncoderReset() const;
-	void EncoderQuadrature() const;
+	void EncoderQuadrature(QuadrateX QuadX) const;
 	byte ReadByte() const;
 	int32_t EncoderRead(SelectChannel EncoderChannel) const;
 

@@ -8,6 +8,32 @@
 
 #include "HCTL2032.h"
 #include "Arduino.h"
+
+void HCTL2032::EncoderQuadrature(QuadrateX QuadX) const
+
+{
+	switch QuadX
+	
+	case 1
+	
+		digitalWrite(encoderPinEn1, HIGH);
+		digitalWrite(encoderPinEn2, LOW);
+		
+		break:
+		
+		case 2
+		
+		digitalWrite(encoderPinEn1, HIGH);
+		digitalWrite(encoderPinEn2, LOW);
+		
+		break:
+		case 3:
+		break
+		case 4:
+		
+		break:
+}
+
 void HCTL2032::EncoderInit() const
 {
 	pinMode(encoderPinXY, OUTPUT);
@@ -28,10 +54,10 @@ void HCTL2032::EncoderInit() const
 	pinMode(encoderPinEn1, OUTPUT);
 	pinMode(encoderPinEn2, OUTPUT);
 
-	digitalWrite(encoderPinEn1, HIGH);
-	digitalWrite(encoderPinEn2, LOW);
 
 
+	EncoderQuadrature(x4);
+	
 	digitalWrite(encoderPinOE, HIGH);
 
 	EncoderReset();
