@@ -1,8 +1,7 @@
-/* 
-* HCTL2032.cpp
-*
-* Created: 11.05.2016 22:49:29
-* Author: adgzlanl
+/*
+HCTL2032 - Library for HCTL2032 IC Decoder .
+Created by Anil Adiguzel / www.about.me/aniladiguzel , MAY 12, 2016.
+Released into the public domain.
 */
 
 
