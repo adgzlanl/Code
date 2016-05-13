@@ -3,6 +3,9 @@ LS7366R - Library for LS7366R IC Decoder .
 Created by Anil Adiguzel / www.about.me/aniladiguzel , MAY 12, 2016.
 Released into the public domain.
 */
+//****** You do not have to use  SetStatusRegister,OperationFunction,SetMDR0Register,SetMDR1Register,ZeroSendRegister,SetOperation,InitLS7366R for reading Encoder
+// All of these for Options. just i wrote these functions to understand how to set Registers. for reading encoder, just use ....... these functions
+
 
 #include "Arduino.h"
 #include <SPI.h>
@@ -185,8 +188,10 @@ enum   MDR0Register
 	};
 
 	void SetOperation(int SlaveSelect, ZeroSend SetZero, SelecEnumOp OP, IRregister SetIR, STRegister SetSTR, MDR0Register SetMDR0, MDR1Register SetMDR1) const;
-	uint32_t ReadLS7366R(int SlaveSelect) const;
 	void InitLS7366R(int SelectSlave) const;
+	uint32_t ReadEncoder(int SlaveSelect) const;
+	void ResetEncoder(int SelectSlave) const;
+	void InitEncoder(int SelectSlave,MDR0Register SetMDR0,MDR1Register SetMDR1) const;
 
 	private:
 	void OperationFunction(IRregister SelectOperation) const;

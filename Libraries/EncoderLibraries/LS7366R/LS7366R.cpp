@@ -9,7 +9,8 @@ Released into the public domain.
 
 
 
-
+//****** You do not have to use  SetStatusRegister,OperationFunction,SetMDR0Register,SetMDR1Register,ZeroSendRegister,SetOperation,InitLS7366R for reading Encoder
+// All of these for Options. just i wrote these functions to understand how to set Registers. for reading encoder, just use ....... these functions
 void LS7366R::SetStatusRegister(STRegister SelectStatusRegister) const
 
 {
@@ -89,7 +90,54 @@ void LS7366R::SetOperation (int SlaveSelect,ZeroSend SetZero, SelecEnumOp OP, IR
 
 
 }
-uint32_t LS7366R::ReadLS7366R(int SlaveSelect) const
+
+void LS7366R::InitLS7366R(int SelectSlave) const
+{	
+	SPI.begin();
+	pinMode(SelectSlave, OUTPUT);
+	digitalWrite(SelectSlave, HIGH);
+	
+}
+
+
+//**********************************************************************************************************************************
+
+// InitEncoder
+void LS7366R::InitEncoder(int SelectSlave,MDR0Register SetMDR0,MDR1Register SetMDR1) const
+{
+	pinMode(SelectSlave,OUTPUT);
+	digitalWrite(SelectSlave,HIGH);
+	SPI.begin();
+
+	digitalWrite(SelectSlave, LOW);
+	SPI.transfer(0x88);      
+	SPI.transfer(MDR0Register);       
+	digitalWrite(SelectSlave, HIGH);
+	
+	digitalWrite(SelectSlave, LOW);
+	SPI.transfer(0x90);
+	SPI.transfer(SetMDR1);       
+	digitalWrite(SelectSlave, HIGH)
+	
+}
+//Reset Encoder
+void LS7366R::ResetEncoder(int SelectSlave) const
+{
+  digitalWrite(SelectSlave, LOW);
+  SPI.transfer(0x98);
+  SPI.transfer(0x00);
+  SPI.transfer(0x00);
+  SPI.transfer(0x00);
+  SPI.transfer(0x00);
+  digitalWrite(SelectSlave, HIGH);
+
+  digitalWrite(SelectSlave, LOW);     
+  SPI.transfer(0xE0);      
+  digitalWrite(SelectSlave, HIGH);
+}
+
+// Read Encoder
+uint32_t LS7366R::ReadEncoder(int SlaveSelect) const
 {
 	uint32_t count_value;
 	uint32_t count_1, count_2, count_3, count_4;
@@ -105,13 +153,7 @@ uint32_t LS7366R::ReadLS7366R(int SlaveSelect) const
 
 	return count_value;
 }
-void LS7366R::InitLS7366R(int SelectSlave) const
-{	
-	SPI.begin();
-	pinMode(SelectSlave, OUTPUT);
-	digitalWrite(SelectSlave, HIGH);
-	
-}
+
 
 
 
