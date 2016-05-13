@@ -102,13 +102,19 @@ void LS7366R::InitLS7366R(int SelectSlave) const
 
 //**********************************************************************************************************************************
 
+
+void LS7366R::InitSPI(int SelectSlave) const
+{
+
+	SPI.begin();
+}
+
 // InitEncoder
 void LS7366R::InitEncoder(int SelectSlave,MDR0Register SetMDR0,MDR1Register SetMDR1) const
-{
+{	
+	
 	pinMode(SelectSlave,OUTPUT);
 	digitalWrite(SelectSlave,HIGH);
-	SPI.begin();
-
 	digitalWrite(SelectSlave, LOW);
 	SPI.transfer(0x88);      
 	SPI.transfer(MDR0Register);       

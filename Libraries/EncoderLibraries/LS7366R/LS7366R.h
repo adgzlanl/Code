@@ -188,6 +188,7 @@ enum   MDR0Register
 	};
 
 	void SetOperation(int SlaveSelect, ZeroSend SetZero, SelecEnumOp OP, IRregister SetIR, STRegister SetSTR, MDR0Register SetMDR0, MDR1Register SetMDR1) const;
+	void InitSPI(int SelectSlave) const
 	void InitLS7366R(int SelectSlave) const;
 	uint32_t ReadEncoder(int SlaveSelect) const;
 	void ResetEncoder(int SelectSlave) const;
