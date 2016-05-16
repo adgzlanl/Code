@@ -72,6 +72,14 @@ LS7366R::LS7366R(int SelectSlave)
 
 }
 
+LS7366R::LS7366R(int SlaveSelect, byte Instruction, byte RegisterBit)
+{
+	digitalWrite(SS, LOW);
+	SPI.transfer(Instruction);
+	SPI.transfer(RegisterBit);
+	digitalWrite(SS, HIGH);
+}
+
 void LS7366R::ResetEncoder()
 {
 	digitalWrite(SS, LOW);
