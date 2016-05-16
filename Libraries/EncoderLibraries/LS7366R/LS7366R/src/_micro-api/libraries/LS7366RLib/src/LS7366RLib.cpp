@@ -33,23 +33,28 @@ LS7366R::LS7366R(int SelectSlave)
 	pinMode(SS, OUTPUT);
 	digitalWrite(SS, HIGH);
 	SPI.begin();
+
 	digitalWrite(SS, LOW);
 	SPI.transfer(WR_MDR0);
 	SPI.transfer(X4_QUAD);
 	digitalWrite(SS, HIGH);
 
+	digitalWrite(SS, LOW);
 	SPI.transfer(WR_MDR0);
 	SPI.transfer(FREE_RUN);
 	digitalWrite(SS, HIGH);
 
+	digitalWrite(SS, LOW);
 	SPI.transfer(WR_MDR0);
 	SPI.transfer(DISABLE_IDX);
 	digitalWrite(SS, HIGH);
 
+	digitalWrite(SS, LOW);
 	SPI.transfer(WR_MDR0);
 	SPI.transfer(ASYN_IDX);
 	digitalWrite(SS, HIGH);
 
+	digitalWrite(SS, LOW);
 	SPI.transfer(WR_MDR0);
 	SPI.transfer(CLK_DIV_2);
 	digitalWrite(SS, HIGH);

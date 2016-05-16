@@ -172,7 +172,7 @@ class LS7366R
 
 public:
 	LS7366R(int);
-	//LS7366R(int,byte,byte);
+	LS7366R(int,byte,byte);
 	void ResetEncoder();
 	int32_t ReadEncoder();
 
