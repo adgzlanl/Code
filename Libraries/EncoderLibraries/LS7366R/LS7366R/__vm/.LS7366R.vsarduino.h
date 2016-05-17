@@ -12,7 +12,7 @@
 #define _VSARDUINO_H_
 #define __AVR_ATmega2560__
 #define F_CPU 16000000L
-#define ARDUINO 10609
+#define ARDUINO 10607
 #define ARDUINO_AVR_MEGA2560
 #define ARDUINO_ARCH_AVR
 #define __cplusplus 201103L
@@ -62,11 +62,7 @@ extern "C" void __cxa_pure_virtual() {;}
 #define portOutputRegister(P)
 #define portInputRegister(P)
 #define portModeRegister(P)
-
-//
-//
-
-#include <LS7366R.ino>
+#include <..\LS7366R\LS7366R.ino>
 #include <src\_micro-api\libraries\LS7366RLib\src\LS7366RLib.cpp>
 #include <src\_micro-api\libraries\LS7366RLib\src\LS7366RLib.h>
 #endif
